@@ -3,5 +3,5 @@ import { readJSON } from "../utils";
 
 const movies = readJSON('../movies.json');
 export default function handler(req: VercelRequest, res: VercelResponse) {
-    res.json(movies);
+    return res.json(movies);
 }
