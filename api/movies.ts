@@ -1,7 +1,9 @@
-import { VercelRequest, VercelResponse } from "@vercel/node";
-import { readJSON } from "../utils";
+import { VercelRequest, VercelResponse } from '@vercel/node'
+import { readJSON } from '../utils'
 
-const movies = readJSON('../movies.json');
+const moviesJs = readJSON('../movies.json')
 export default function handler(req: VercelRequest, res: VercelResponse) {
-    return res.json(movies);
+  const { movies = moviesJs } = req.query
+
+  return res.json(movies)
 }
